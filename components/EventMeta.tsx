@@ -38,7 +38,7 @@ export function EventMeta({
         </span>
       </div>
       <div className="flex items-center gap-2 text-white/90">
-        <Crown className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 shrink-0" />
+        <Crown className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
         <span className="text-base sm:text-lg">Hosted by {hostName}</span>
       </div>
     </div>

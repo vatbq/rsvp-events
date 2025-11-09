@@ -29,7 +29,7 @@ export function VenmoPitchIn({
   };
 
   return (
-    <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-xl p-6 border border-green-500/20">
+    <div className="bg-white/5 rounded-xl p-6 border border-white/10">
       <div className="flex items-start gap-3 mb-4">
         <div className="w-10 h-10 rounded-full bg-green-500/20 border-2 border-green-500/30 flex items-center justify-center shrink-0">
           <DollarSign className="w-5 h-5 text-green-400" />
@@ -112,7 +112,7 @@ export function VenmoPitchIn({
         {/* Info Note */}
         <div className="pt-3 border-t border-white/10">
           <p className="text-xs text-white/50 text-center">
-            This is a suggested contribution. You can send any amount you're
+            This is a suggested contribution. You can send any amount you&apos;re
             comfortable with.
           </p>
         </div>

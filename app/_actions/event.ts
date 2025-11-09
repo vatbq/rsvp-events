@@ -11,7 +11,7 @@ export async function getEventData(eventId: string) {
     date: "Sunday, Nov 23",
     time: "12:45am",
     location: "299 Fremont St. San Francisco CA",
-    spotsLeft: 10,
+    spotsLeft: 13,
     totalSpots: 25,
     isPrivate: false,
     host: {
@@ -20,11 +20,12 @@ export async function getEventData(eventId: string) {
     },
     description:
       "Gather your favorite people for a night of laughter, too much food, and questionable pumpkin pie decisions. Bring your best dish (or just your best self) — it's Friendsgiving!",
-    image: "/api/placeholder/600/400",
+    image:
+      "https://partiful-posters.imgix.net/friendsgiving-plaid-one?fit=max&w=1440",
     guests: {
-      going: 1,
-      maybe: 1,
-      cantGo: 0,
+      going: 12,
+      maybe: 5,
+      cantGo: 3,
       invited: 25,
     },
     hasVenmoPitchIn: true,
@@ -34,7 +35,6 @@ export async function getEventData(eventId: string) {
   };
 }
 
-// Mock server action for fetching announcements
 export async function getAnnouncements(eventId: string) {
   await new Promise((resolve) => setTimeout(resolve, 50));
 

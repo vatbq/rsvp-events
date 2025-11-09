@@ -19,7 +19,7 @@ export function DesktopEventHeader({ title, icon }: DesktopEventHeaderProps) {
   };
 
   return (
-    <div className="hidden lg:flex items-start justify-between gap-4">
+    <div className="hidden lg:flex items-center justify-between gap-4">
       <div className="flex items-center gap-3">
         <IconRenderer iconName={icon} className="w-10 h-10 text-orange-400" />
         <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
@@ -28,7 +28,7 @@ export function DesktopEventHeader({ title, icon }: DesktopEventHeaderProps) {
       </div>
       <button
         onClick={handleCopyLink}
-        className="px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors text-sm font-medium flex items-center gap-2 shrink-0"
+        className="px-3 py-2 mt-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors text-sm font-medium flex items-center gap-2 shrink-0"
       >
         <Copy className="w-4 h-4" />
         {copied ? "Copied!" : "Copy Link"}

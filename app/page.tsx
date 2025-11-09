@@ -8,6 +8,7 @@ import { AppOnlyFeature } from "@/components/AppOnlyFeature";
 import { VenmoPitchIn } from "@/components/VenmoPitchIn";
 import { RequestToJoin } from "@/components/RequestToJoin";
 import { getEventData, getAnnouncements } from "@/app/_actions/event";
+import Image from "next/image";
 import { Calendar } from "lucide-react";
 
 interface EventRSVPPageProps {
@@ -23,7 +24,7 @@ export default async function EventRSVPPage({
   const announcements = await getAnnouncements(eventId);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#1a1a1a] via-[#0f0f0f] to-[#1a1a1a] text-white relative overflow-hidden">
+    <div className="min-h-screen text-white relative overflow-hidden">
       {/* Starry background effect */}
       <StarryBackground />
 
@@ -31,9 +32,13 @@ export default async function EventRSVPPage({
       <header className="relative z-10 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-gradient-to-br from-orange-500 to-orange-600 rounded flex items-center justify-center">
-              <span className="text-white text-xs font-bold">F</span>
-            </div>
+            <Image
+              src="https://flairtime-copy.web.app/images/logo_gradient.png"
+              alt="Flare"
+              width={24}
+              height={24}
+              className="w-6 h-auto"
+            />
             <span className="text-xl font-semibold">Flare</span>
           </div>
           <button className="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors text-sm font-medium">
@@ -50,19 +55,31 @@ export default async function EventRSVPPage({
         </div>
 
         {/* Mobile-first: Single column layout, reordered for better UX */}
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-12">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-12">
           {/* Left Column - Event Details (Desktop) / First on Mobile */}
           <div className="order-1 lg:order-1 space-y-6">
             {/* Event Title & Copy Link - Desktop only */}
             <DesktopEventHeader title={eventData.title} icon="calendar" />
 
             {/* Event Image - Mobile: Show first after title */}
-            <div className="lg:hidden relative rounded-2xl overflow-hidden bg-white/5 border border-white/10">
-              <div className="aspect-[4/3] bg-gradient-to-br from-orange-500/20 to-pink-500/20 flex items-center justify-center">
-                <div className="text-center">
-                  <Calendar className="w-16 h-16 sm:w-20 sm:h-20 text-orange-400 mx-auto mb-4" />
-                  <p className="text-white/60 text-sm">Event Image</p>
-                </div>
+            <div className="lg:hidden relative rounded-2xl overflow-hidden bg-white/5">
+              <div className="aspect-[4/3] relative">
+                {eventData.image ? (
+            <Image
+                    src={eventData.image}
+                    alt={eventData.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-pink-500/20 flex items-center justify-center">
+                    <div className="text-center">
+                      <Calendar className="w-16 h-16 sm:w-20 sm:h-20 text-orange-400 mx-auto mb-4" />
+                      <p className="text-white/60 text-sm">Event Image</p>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -132,12 +149,24 @@ export default async function EventRSVPPage({
           {/* Right Column - Image & RSVP (Desktop) */}
           <div className="order-2 lg:order-2 space-y-6">
             {/* Event Image - Desktop only */}
-            <div className="hidden lg:block relative rounded-2xl overflow-hidden bg-white/5 border border-white/10">
-              <div className="aspect-[4/3] bg-gradient-to-br from-orange-500/20 to-pink-500/20 flex items-center justify-center">
-                <div className="text-center">
-                  <Calendar className="w-20 h-20 text-orange-400 mx-auto mb-4" />
-                  <p className="text-white/60 text-sm">Event Image</p>
-                </div>
+            <div className="hidden lg:block relative rounded-2xl overflow-hidden bg-white/5">
+              <div className="aspect-[4/3] relative">
+                {eventData.image ? (
+                  <Image
+                    src={eventData.image}
+                    alt={eventData.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 50vw, 33vw"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-pink-500/20 flex items-center justify-center">
+                    <div className="text-center">
+                      <Calendar className="w-20 h-20 text-orange-400 mx-auto mb-4" />
+                      <p className="text-white/60 text-sm">Event Image</p>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -201,9 +230,13 @@ export default async function EventRSVPPage({
         <div className="flex items-center justify-between mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/10">
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2 text-white/60">
-              <div className="w-5 h-5 bg-gradient-to-br from-orange-500 to-orange-600 rounded flex items-center justify-center">
-                <span className="text-white text-xs font-bold">F</span>
-              </div>
+              <Image
+                src="https://flairtime-copy.web.app/images/logo_gradient.png"
+                alt="Flare"
+                width={20}
+                height={20}
+                className="w-5 h-5"
+              />
               <span className="text-xs sm:text-lg">Powered by Flare</span>
             </div>
             <p className="text-white/60 text-xs sm:text-sm max-w-md">

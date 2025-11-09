@@ -120,3 +120,52 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Starry background animations */
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes starFloatContained {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.4;
+  }
+  33% {
+    transform: translate(5px, -5px) scale(1.1);
+    opacity: 0.8;
+  }
+  66% {
+    transform: translate(-5px, 5px) scale(0.9);
+    opacity: 0.6;
+  }
+}
+
+@keyframes starPulse {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-20px, -20px) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(20px, 20px) scale(1.1);
+  }
+}

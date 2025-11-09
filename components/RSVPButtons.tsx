@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { ThumbsUp, HelpCircle, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 type RSVPStatus = "going" | "maybe" | "cant-go" | null;
 
@@ -23,6 +24,7 @@ export function RSVPButtons({
       icon: ThumbsUp,
       selectedClass: "bg-gradient-to-br from-green-500/40 via-emerald-500/35 to-green-600/40 border-green-400/60 text-white shadow-[0_8px_32px_rgba(34,197,94,0.3)] ring-1 ring-green-400/40",
       unselectedClass: "bg-white/5 border-white/15 text-white/70 shadow-lg shadow-black/20",
+      hoverClass: "hover:bg-green-500/20 hover:border-green-400/40 hover:text-white",
     },
     {
       status: "maybe" as const,
@@ -30,6 +32,7 @@ export function RSVPButtons({
       icon: HelpCircle,
       selectedClass: "bg-gradient-to-br from-amber-500/40 via-orange-500/35 to-amber-600/40 border-amber-400/60 text-white shadow-[0_8px_32px_rgba(245,158,11,0.3)] ring-1 ring-amber-400/40",
       unselectedClass: "bg-white/5 border-white/15 text-white/70 shadow-lg shadow-black/20",
+      hoverClass: "hover:bg-yellow-500/20 hover:border-yellow-400/40 hover:text-white",
     },
     {
       status: "cant-go" as const,
@@ -37,6 +40,7 @@ export function RSVPButtons({
       icon: X,
       selectedClass: "bg-gradient-to-br from-slate-500/40 via-gray-500/35 to-slate-600/40 border-slate-400/60 text-white shadow-[0_8px_32px_rgba(100,116,139,0.3)] ring-1 ring-slate-400/40",
       unselectedClass: "bg-white/5 border-white/15 text-white/70 shadow-lg shadow-black/20",
+      hoverClass: "hover:bg-red-500/20 hover:border-red-400/40 hover:text-white",
     },
   ];
 
@@ -46,7 +50,7 @@ export function RSVPButtons({
         const isSelected = currentStatus === button.status;
         const Icon = button.icon;
         return (
-          <button
+          <Button
             key={button.status}
             onClick={() => onStatusChange(isSelected ? null : button.status)}
             disabled={disabled}
@@ -57,8 +61,9 @@ export function RSVPButtons({
               disabled && "opacity-50 cursor-not-allowed",
               isSelected
                 ? `${button.selectedClass} scale-[1.02]`
-                : `${button.unselectedClass} hover:bg-white/10 hover:border-white/25 hover:scale-[1.01]`,
+                : `${button.unselectedClass} ${button.hoverClass} hover:scale-[1.01]`,
             )}
+            variant="outline"
           >
             <Icon className={cn(
               "w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300",
@@ -68,7 +73,7 @@ export function RSVPButtons({
               "transition-all duration-300",
               isSelected && "font-semibold"
             )}>{button.label}</span>
-          </button>
+          </Button>
         );
       })}
     </div>

@@ -7,7 +7,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-// Icon mapping for client components
 export const iconMap: Record<string, LucideIcon> = {
   calendar: Calendar,
   camera: Camera,

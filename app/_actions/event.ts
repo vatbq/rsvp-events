@@ -1,8 +1,6 @@
 "use server";
 
-// Mock server action for fetching event data
 export async function getEventData(eventId: string) {
-  // Simulate API delay
   await new Promise((resolve) => setTimeout(resolve, 100));
 
   return {
@@ -55,14 +53,12 @@ export async function getAnnouncements(eventId: string) {
   ];
 }
 
-// Mock server action for submitting RSVP
 export async function submitRSVP(
   eventId: string,
   status: "going" | "maybe" | "cant-go",
 ) {
   await new Promise((resolve) => setTimeout(resolve, 500));
 
-  // In a real app, this would save to database
   return {
     success: true,
     status,
@@ -70,11 +66,9 @@ export async function submitRSVP(
   };
 }
 
-// Mock server action for requesting to join private event
 export async function requestToJoin(eventId: string, message: string) {
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  // In a real app, this would send notification to host
   return {
     success: true,
     message: "Request submitted successfully",

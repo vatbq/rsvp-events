@@ -121,7 +121,6 @@
   }
 }
 
-/* Starry background animations */
 @keyframes starTwinkle {
   0%, 100% {
     opacity: 0.3;

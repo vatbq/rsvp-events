@@ -80,14 +80,12 @@ export function RSVPSection({ eventId, isPrivate, hostName }: RSVPSectionProps) 
 
   return (
     <div className="space-y-6">
-      <div className="text-center">
         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 tracking-tight">
           Are you coming?
         </h2>
         <p className="text-white/60 text-sm sm:text-base">
           Let us know your plans
         </p>
-      </div>
       <RSVPButtons
         currentStatus={rsvpStatus}
         onStatusChange={handleStatusChange}

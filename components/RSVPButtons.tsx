@@ -19,12 +19,12 @@ export function RSVPButtons({
 }: RSVPButtonsProps) {
   const buttons = [
     {
-      status: "going" as const,
-      label: "Going",
-      icon: ThumbsUp,
-      selectedClass: "bg-gradient-to-br from-green-500/40 via-emerald-500/35 to-green-600/40 border-green-400/60 text-white shadow-[0_8px_32px_rgba(34,197,94,0.3)] ring-1 ring-green-400/40",
+      status: "cant-go" as const,
+      label: "Can't Go",
+      icon: X,
+      selectedClass: "bg-gradient-to-br from-slate-500/40 via-gray-500/35 to-slate-600/40 border-slate-400/60 text-white shadow-[0_8px_32px_rgba(100,116,139,0.3)] ring-1 ring-slate-400/40",
       unselectedClass: "bg-white/5 border-white/15 text-white/70 shadow-lg shadow-black/20",
-      hoverClass: "hover:bg-green-500/20 hover:border-green-400/40 hover:text-white",
+      hoverClass: "hover:bg-red-500/20 hover:border-red-400/40 hover:text-white",
     },
     {
       status: "maybe" as const,
@@ -34,13 +34,13 @@ export function RSVPButtons({
       unselectedClass: "bg-white/5 border-white/15 text-white/70 shadow-lg shadow-black/20",
       hoverClass: "hover:bg-yellow-500/20 hover:border-yellow-400/40 hover:text-white",
     },
-    {
-      status: "cant-go" as const,
-      label: "Can't Go",
-      icon: X,
-      selectedClass: "bg-gradient-to-br from-slate-500/40 via-gray-500/35 to-slate-600/40 border-slate-400/60 text-white shadow-[0_8px_32px_rgba(100,116,139,0.3)] ring-1 ring-slate-400/40",
+     {
+      status: "going" as const,
+      label: "Going",
+      icon: ThumbsUp,
+      selectedClass: "bg-gradient-to-br from-green-500/40 via-emerald-500/35 to-green-600/40 border-green-400/60 text-white shadow-[0_8px_32px_rgba(34,197,94,0.3)] ring-1 ring-green-400/40",
       unselectedClass: "bg-white/5 border-white/15 text-white/70 shadow-lg shadow-black/20",
-      hoverClass: "hover:bg-red-500/20 hover:border-red-400/40 hover:text-white",
+      hoverClass: "hover:bg-green-500/20 hover:border-green-400/40 hover:text-white",
     },
   ];
 
